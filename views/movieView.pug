@@ -1,0 +1,44 @@
+extends layout
+
+block mainPane
+  h1= movie.title
+  div
+    h2 Overview
+    p= movie.overview
+
+    h2 Main cast
+    p= movie.shortCast
+  div
+    h2 Genre
+    p= movie.genreList
+
+    h2 Keywords
+    p= movie.keywordList
+
+    h2 Production Companies
+    p= movie.productionCompanyList
+
+    h2 Production Countries
+    p= movie.productionCountryList
+
+  div
+    h4 Redis Data
+    h2 Previously Viewed
+    p= previouslyViewedList
+
+    h2 Recommendations
+    p= recommendationList
+
+  div
+    h4 Mongo Data
+    h2 Reviews
+    p= reviewsList
+
+    h2 Add a review
+
+  div
+    h4 neo4j Data
+    h2 Relationships
+
+
+

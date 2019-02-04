@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    #wrapper
+      #header
+        include includes/header.pug
+      #leftPane
+        include includes/leftPane.pug
+      #mainPane
+        block mainPane
+      #footer
+        include includes/footer.pug
