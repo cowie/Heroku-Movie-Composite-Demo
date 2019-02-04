@@ -25,7 +25,8 @@ router.get('/', (req, res) => {
     productionCompanyList: 'Uh Sony? And like somethign',
     productionCountryList: 'USA!, Pandora Jewelers',
   };
-
+  
+  
   const previouslyViewedList = 'Dances w Wolves, Ferngully';
   const recommendationList = 'lol like so many movies';
   const reviewsList = '"It Stinks!" - The Critic';
@@ -38,5 +39,17 @@ router.get('/', (req, res) => {
     reviewsList,
   });
 });
+
+router.get('/movies/:movieID', (req, res, next) => {
+  pool.query('SELECT NOW()', (err,qres) => {
+    console.log(qres);
+    
+  });
+});
+
+router.get('/movies/movieList', (req, res, next) => {
+
+});
+
 
 module.exports = router;
