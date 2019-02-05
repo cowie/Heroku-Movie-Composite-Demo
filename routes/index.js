@@ -47,7 +47,8 @@ router.get('/movies/:movieID', (req, res, next) => {
       res.sendStatus(200);
     } else {
       const movie = qres.rows[0];
-      movie.shortCast = JSON.parse(movie.temp_cast__c).slice(0, 3);
+      //movie.shortCast = JSON.parse(movie.temp_cast__c).slice(0, 3);
+      console.log(movie.temp_cast__c);
       movie.previouslyViewedList = [];
       movie.recommendedList = [];
       console.log(movie);
