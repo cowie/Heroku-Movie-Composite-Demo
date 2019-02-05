@@ -48,10 +48,13 @@ router.get('/movies/:movieID', (req, res, next) => {
     } else {
       console.log(qres.rows[0]);
       const movie = qres.rows[0];
+      movie.shortCast = movie.temp_cast__c.slice(0, 2);
       res.render('movieView', { movie });
     }
   });
 });
+
+function castS
 
 router.get('/movies/movieList', (req, res, next) => {
 
