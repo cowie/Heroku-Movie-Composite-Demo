@@ -45,7 +45,7 @@ router.get('/movies/:movieID', (req, res, next) => {
     if (err) {
       console.log(err.stack);
       res.sendStatus(200);
-    } else {
+    } else if (qres.rows[0]) {
       const movie = qres.rows[0];
       movie.shortCast = [];
       const tempCast = JSON.parse(movie.temp_cast__c).slice(0, 3);
@@ -54,6 +54,8 @@ router.get('/movies/:movieID', (req, res, next) => {
       movie.recommendedList = [];
       console.log(movie);
       res.render('movieView', { movie });
+    } else {
+      res.sendStatus(200);
     }
   });
 });
@@ -77,7 +79,7 @@ router.get('/test/moviePage', (req, res, next) => {
         gender: 1,
         id: 3489,
         name: 'Naomi Watts',
-        order: 0
+        order: 0,
       },
       {
         cast_id: 6,
@@ -86,7 +88,7 @@ router.get('/test/moviePage', (req, res, next) => {
         gender: 2,
         id: 70851,
         name: 'Jack Black',
-        order: 1 
+        order: 1,
       },
       {
         cast_id: 7,
@@ -95,8 +97,8 @@ router.get('/test/moviePage', (req, res, next) => {
         gender: 2,
         id: 3490,
         name: 'Adrien Brody',
-        order: 2
-      }
+        order: 2,
+      },
     ],
     previouslyViewedList: [
       {
@@ -106,7 +108,7 @@ router.get('/test/moviePage', (req, res, next) => {
       {
         title: 'Kong: Skull Island',
         movieID: '23456',
-      }
+      },
     ],
     recommendedList: [
       {
