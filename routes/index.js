@@ -42,18 +42,14 @@ router.get('/', (req, res) => {
 router.get('/movies/:movieID', (req, res, next) => {
   const { movieID } = req.params;
 
-  pool.connect((err, client, done) => {
-    if (err) throw err;
-    client.query(moviePageQuery, [movieID], (qerr, qres) => {
-      done();
-      if (qerr) {
-        console.log(err.stack);
-        res.send(200);
-      } else {
-        console.log(qres.rows[0]);
-        res.render('movieView', qres.rows[0]);
-      }
-    });
+  pool.query(moviePageQuery, [movieID], (err, qres) => {
+    if (err) {
+      console.log(err.stack);
+      res.send(200);
+    } else {
+      console.log(qres.rows[0]);
+      res.render('movieView', qres.rows[0]);
+    }
   });
 });
 
