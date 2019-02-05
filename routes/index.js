@@ -48,7 +48,7 @@ router.get('/movies/:movieID', (req, res, next) => {
     } else {
       console.log(qres.rows[0]);
       const movie = qres.rows[0];
-      movie.shortCast = movie.temp_cast__c.slice(0, 2);
+      movie.shortCast = movie.temp_cast__c.slice(0, 3);
       res.render('movieView', { movie });
     }
   });
