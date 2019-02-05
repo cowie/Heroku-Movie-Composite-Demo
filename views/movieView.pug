@@ -1,25 +1,25 @@
 extends layout
 
 block mainPane
-  h1= movie.title
+  h1= movie.title__c
   div
     h2 Overview
-    p= movie.overview
+    p movie.overview__c
 
     h2 Main cast
-    p= movie.shortCast
+    p movie.shortCast
   div
     h2 Genre
-    p= movie.genreList
+    p= movie.Genres
 
     h2 Keywords
-    p= movie.keywordList
+    p= movie.Keywords
 
     h2 Production Companies
-    p= movie.productionCompanyList
+    p movie.Production_Companies
 
     h2 Production Countries
-    p= movie.productionCountryList
+    p movie.Production_Countries
 
   div
     h4 Redis Data
