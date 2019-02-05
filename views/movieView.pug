@@ -12,7 +12,7 @@ block mainPane
       li.nav-item
         a.nav-link(href="#") Reviews
   br
-  .container.marketing
+  .container.castHolder
     .row
       each castMember in movie.shortCast
         .col-lg-4.text-center
@@ -22,34 +22,50 @@ block mainPane
             text(fill="#777", dy=".3em", x="50%", y="50%") 140x140
           h2= castMember.name
           p= castMember.character
-  div
-    h2 Genre
-    p= movie.Genres
-
-    h2 Keywords
-    p= movie.Keywords
-
-    h2 Production Companies
-    p= movie.companies
-
-    h2 Production Countries
-    p=movie.countries
-
-  div
-    h4 Redis Data
-    h2 Previously Viewed
-    p previouslyViewedList
-
-    h2 Recommendations
-    p recommendationList
-
-  div
-    h4 Mongo Data
-    h2 Reviews
-    p reviewsList
-
-    h2 Add a review
-
-  div
-    h4 neo4j Data
-    h2 Relationships
+  .container.details
+    .row
+      .col
+        h2 Budget
+        p=movie.budget__c
+      .col
+        h2 Revenue
+        p=movie.revenue__c
+      .col
+        h2 Release Date
+        p=movie.release_date__c
+    .row
+      .col
+        h2 Genre
+        p= movie.Genres
+      .col
+        h2 Keywords
+        p= movie.Keywords
+    .row
+      .col
+        h2 Production Companies
+        p= movie.companies
+      .col
+        h2 Production Countries
+        p= movie.countries
+  .container.redisData
+    .row#redisRow1
+      h3 Previously Viewed
+    .row#redisRow1b
+      each pMovie in movie.previouslyViewedList
+        .col
+          h4= pMovie.title
+          p= pMovie.movieID
+    .row#redisRow2
+      h3 Recommended
+    .row#redisRow2b
+      each rMovie in movie.recommendedList
+        .col
+          h4= rMovie.title
+          p= rMovie.reason
+          p= rMovie.movieID
+  .container.mongoData
+    .row#mongoRow1
+      h3 Reviews
+  .container.graphData
+    .row#graphRow1
+      h3 Relationships
