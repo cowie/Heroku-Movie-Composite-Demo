@@ -8,12 +8,12 @@ I'm still working on this so like come back later or something. No guarantee it 
 This part in particular is centered on a 'consumer' application viewing the database. Think like a scrub TMDB. 
 
 ## Prereq's
-* Do the things in the sfdx repo first.
+* Do the things in the sfdx repo first. https://github.com/cowie/SFDC-Movie-Composite-Demo
 * Install herokuCLI, and get a heroku account (it's free)
 
 ## Dev, Build and Test
 
-* srs, do the sfdx repo I have first.
+* srs, do the sfdx repo I have first. https://github.com/cowie/SFDC-Movie-Composite-Demo
 * git clone dis
 * run `sh config/herokuAutomation.sh` and marvel at how I don't keep conventions between related repos
 * Auth when it asks to auth.
