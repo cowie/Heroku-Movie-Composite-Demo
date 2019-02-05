@@ -54,8 +54,6 @@ router.get('/movies/:movieID', (req, res, next) => {
   });
 });
 
-function castS
-
 router.get('/movies/movieList', (req, res, next) => {
 
 });
