@@ -47,10 +47,8 @@ router.get('/movies/:movieID', (req, res, next) => {
       res.sendStatus(200);
     } else {
       console.log(qres.rows[0]);
-      const { movie } = qres.rows[0];
-      console.log(movie);
 
-      res.render('movieView', { movie });
+      res.render('movieView', { qres.rows[0] });
     }
   });
 });
