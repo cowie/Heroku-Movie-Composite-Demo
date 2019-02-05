@@ -47,7 +47,7 @@ router.get('/movies/:movieID', (req, res, next) => {
       res.sendStatus(200);
     } else {
       console.log(qres.rows[0]);
-      res.render('movieView', qres.rows[0]);
+      res.render('movieView', { movie: qres.rows[0] });
     }
   });
 });
