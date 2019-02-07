@@ -200,7 +200,7 @@ router.get('/movieList', (req, res, next) => {
     else {
       // qres.rows[0-2] == featuredMoviesList, can generally trust you'll be ok.
       // qres.rows[3-22] == movieList (may be 0-20)
-      const featuredMoviesList = qres.rows.slice(0, 2);
+      const featuredMoviesList = qres.rows.slice(0, 3);
       const movieList = qres.rows.slice(3, qres.rows.length);
       res.render('movieList', { pageNum, movieList, featuredMoviesList });
     }
