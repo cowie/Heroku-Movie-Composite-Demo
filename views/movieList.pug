@@ -47,7 +47,8 @@ block mainPane
         tbody
           each movie in movieList
             tr
-              td=movie.title__c
+              td
+                a(href='/movies/'+movie.external_id__c)=movie.title__c
               td=movie.tagline__c
               td=movie.vote_average__c
               td=movie.release_date__c
