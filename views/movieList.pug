@@ -16,14 +16,23 @@ block mainPane
             button.btn.btn-lg.btn-block.btn-outline-primary(type="button") Check it out!
     nav(aria-label="Page nav")
       ul.pagination
+        if pageNum > 1
+          li.page-item
+            a.page-link(href='?pageNum=' + (pageNum - 1)) Previous
+        if pageNum > 2
+          li.page-item
+            a.page-link(href='?pageNum=' + (pageNum - 2))=pageNum-2
+        if pageNum > 1
+          li.page-item
+            a.page-link(href='?pageNum=' + (pageNum - 1))=pageNum-1
         li.page-item
-          a.page-link(href="#") Previous
+          a.page-link(href='?pageNum=' + pageNum)=pageNum
+        if pageNum < 20
         li.page-item
-          a.page-link(href="?pageNum=1") 1
+          a.page-link(href='?pageNum=' + (pageNum - -1))=(pageNum - -1)
+        if pageNum < 19
         li.page-item
-          a.page-link(href="?pageNum=2") 2
-        li.page-item
-          a.page-link(href="?pageNum=3") 3
+          a.page-link(href='?pageNum=' + (pageNum - -2))=(pageNum - -2)
         li.page-item
           a.page-link(href="#") Next
     .table-responsive
