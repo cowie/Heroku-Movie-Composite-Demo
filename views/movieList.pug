@@ -3,19 +3,6 @@ extends layout
 block mainPane
   br
   .container
-    h3 Page Variables
-    ul.list-group
-      li.list-group-item
-        h4 pageNum
-        p= pageNum
-      li.list-group-item
-        h4 featuredMoviesList
-        p= featuredMoviesList
-      li.list-group-item
-        h4 movieList
-        p= movieList
-  br
-  .container
     .card-deck.mb-3.text-center
       each movie in featuredMoviesList
         .card.mb-4.shadow-sm
