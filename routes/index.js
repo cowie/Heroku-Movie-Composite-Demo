@@ -186,7 +186,7 @@ router.get('/test/movieList', (req, res, next) => {
   res.render('movieList', { pageNum, movieList, featuredMoviesList });
 });
 
-router.get('/movies/movieList', (req, res, next) => {
+router.get('/movies/moviesList', (req, res, next) => {
   const pageNum = req.query.pageNum || 1;
   const queryOffset = (pageNum - 1) * 20;
   console.log(listViewQuery);
@@ -205,7 +205,6 @@ router.get('/movies/movieList', (req, res, next) => {
       res.render('movieList', { pageNum, movieList, featuredMoviesList });
     }
   });
-  
 });
 
 
