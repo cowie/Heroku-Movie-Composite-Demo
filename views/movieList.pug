@@ -1,11 +1,58 @@
 extends layout
 
 block mainPane
-  h1 List O Da Movies
-  table
-    tr
-      th Title
-      th Overview
-      th Release Date
-      th Budget
-      th Revenue
+  br
+  .container
+    h3 Page Variables
+    ul.list-group
+      li.list-group-item
+        h4 pageNum
+        p= pageNum
+      li.list-group-item
+        h4 featuredMoviesList
+        p= featuredMoviesList
+      li.list-group-item
+        h4 movieList
+        p= movieList
+  br
+  .container
+    .card-deck.mb-3.text-center
+      each movie in featuredMoviesList
+        .card.mb-4.shadow-sm
+          .card-header
+            .my-0.font-weight-normal=movie.title__c
+          .card-body
+            ul.list-unstyled.mt-3.mb-4
+              li=movie.release_date__c
+              li=movie.revenue__c
+              li=movie.tagline__c
+            button.btn.btn-lg.btn-block.btn-outline-primary(type="button") Check it out!
+    nav(aria-label="Page nav")
+      ul.pagination
+        li.page-item
+          a.page-link(href="#") Previous
+        li.page-item
+          a.page-link(href="?pageNum=1") 1
+        li.page-item
+          a.page-link(href="?pageNum=2") 2
+        li.page-item
+          a.page-link(href="?pageNum=3") 3
+        li.page-item
+          a.page-link(href="#") Next
+    .table-responsive
+      table.table.table-striped.table-sm
+        thead
+          tr
+            th Title
+            th Tagline
+            th Vote Average
+            th Release Date
+            th Revenue
+        tbody
+          each movie in movieList
+            tr
+              td=movie.title__c
+              td=movie.tagline__c
+              td=movie.vote_average__c
+              td=movie.release_date__c
+              td=movie.revenue__c
